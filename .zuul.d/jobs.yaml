@@ -31,8 +31,8 @@
     vars: &vars
       container_images: &container_images
         - context: .
-          registry: quay.io
-          repository: quay.io/ansible/awx-ee
+          registry: ghcr.io
+          repository: ghcr.io/ucboulder/sepe-awx-ee/awx-ee
           tags:
             # If zuul.tag is defined: [ '3', '3.19', '3.19.0' ].  Only works for 3-component tags.
             # Otherwise: ['devel']
@@ -42,7 +42,7 @@
 - job:
     name: awx-ee-upload-container-image
     parent: ansible-upload-container-image
-    description: Build awx-ee container image and upload to quay.io
+    description: Build awx-ee container image and upload to GitHub Packages
     timeout: 3600
     provides: awx-ee-container-image
     requires:
