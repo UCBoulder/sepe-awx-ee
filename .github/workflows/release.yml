@@ -21,22 +21,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install tox
 
+      - name: Downcase repo path
+        run: |
+          echo "REPO=ghcr.io/${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
+
       - name: Build image
         env:
           DOCKER_BUILDKIT: 1
         run: |
-          tox -e docker -- --tag=awx-ee:${{ github.event.release.tag_name }}
-          docker tag awx-ee:${{ github.event.release.tag_name }} awx-ee:latest
-          
-      - name: Downcase repo path
-        run: |
-          echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
-          
-      - name: Push awx-ee
-        uses: redhat-actions/push-to-registry@v2.3.1
-        with:
-          image: awx-ee
-          tags: latest ${{ github.event.release.tag_name }}
-          registry: ghcr.io/${{ env.REPO }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          tox -e docker -- --tag=${{ env.REPO }}/awx-ee:${{ github.event.release.tag_name }}
+          docker tag ${{ env.REPO }}/awx-ee:${{ github.event.release.tag_name }} ${{ env.REPO }}/awx-ee:latest
+          docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
+          docker push ${{ env.REPO }}/awx-ee:${{ github.event.release.tag_name }}
+          docker push ${{ env.REPO }}/awx-ee:latest
