@@ -14,7 +14,8 @@ jobs:
 
       - uses: actions/setup-python@v2
         with:
-          python-version: "3.8"
+          # Use builtin python version: https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-README.md#python
+          python-version: "3.9.6"
 
       - name: Install dependencies
         run: |

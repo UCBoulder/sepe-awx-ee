@@ -1,7 +1,11 @@
 ---
 collections:
   - name: awx.awx
-  - name: azure.azcollection
+# Out until https://github.com/ansible-collections/azure/pull/584 is merged
+#- name: azure.azcollection
+  - name: https://github.com/erinn/azure/
+    type: git
+    version: patch-1
   - name: amazon.aws
   - name: theforeman.foreman
   - name: google.cloud
