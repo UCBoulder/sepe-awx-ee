@@ -30,7 +30,6 @@ RUN /output/install-from-bindep && rm -rf /output/wheels
 RUN alternatives --set python /usr/bin/python3
 COPY --from=quay.io/project-receptor/receptor:1.0.0a2 /usr/bin/receptor /usr/bin/receptor
 RUN mkdir -p /var/run/receptor
-RUN dnf -y update
 ADD run.sh /run.sh
 CMD /run.sh
 USER 1000
