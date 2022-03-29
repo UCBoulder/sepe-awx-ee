@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - devel 
+      - sepe-443
 
 jobs:
   release:
@@ -38,7 +39,5 @@ jobs:
         env:
           DOCKER_BUILDKIT: 1
         run: |
-          docker tag ${{ env.REPO }}/awx-ee:${{ github.sha }} ${{ env.REPO }}/awx-ee:latest
           docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
           docker push ${{ env.REPO }}/awx-ee:${{ github.sha }}
-          docker push ${{ env.REPO }}/awx-ee:latest
