@@ -1,0 +1,44 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - devel 
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    name: Build
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r build-reqs.txt
+
+      - name: Downcase repo path
+        run: |
+          echo "REPO=ghcr.io/${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
+
+      - name: Build image
+        run: |
+          ansible-builder build -v3 --tag=${{ env.REPO }}/awx-ee:${{ github.sha }}
+
+      - name: Save context
+        uses: github-actions-x/commit@v2.8
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          push-branch: 'context'
+          commit-message: 'Context from ${{ github.sha }}'
+          files: .
+          force-add: 'true'
+
+      - name: Push image to GH packages
+        env:
+          DOCKER_BUILDKIT: 1
+        run: |
+          docker tag ${{ env.REPO }}/awx-ee:${{ github.sha }} ${{ env.REPO }}/awx-ee:latest
+          docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
+          docker push ${{ env.REPO }}/awx-ee:${{ github.sha }}
+          docker push ${{ env.REPO }}/awx-ee:latest
