@@ -36,8 +36,9 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           push-branch: 'context'
           commit-message: 'Context from ${{ env.SHORT_SHA }}'
-          files: .
+          files: context/ reqs/ build-reqs.txt execution-environment.yml
           force-add: 'true'
+          force-push: 'true'
 
       - name: Push image to GH packages
         run: |
