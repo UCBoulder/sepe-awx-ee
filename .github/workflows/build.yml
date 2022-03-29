@@ -36,8 +36,6 @@ jobs:
           force-add: 'true'
 
       - name: Push image to GH packages
-        env:
-          DOCKER_BUILDKIT: 1
         run: |
-          docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
-          docker push ${{ env.REPO }}/awx-ee:${{ github.sha }}
+          podman login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
+          podman push ${{ env.REPO }}/awx-ee:${{ github.sha }}
