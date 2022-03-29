@@ -2,20 +2,11 @@
 
 A Custom Ansible Execution Environment for Platform Engineering. 
 
-Before creating a PR, run one of the following commands locally. This will
-accomplish 2 things:
-
-1. Update the build context (Basically apply any upstream updates to Containerfile)
-2. Ensure that the build succeeds.
-
-## Regenerating the build context with podman:
+How to build locally:
 
 ```bash
-$ tox -epodman
-```
-
-## Regenerating the build context with docker:
-
-```bash
-$ tox -edocker
+pip install -r build-reqs.txt                       # or however you deal with python
+podman pull quay.io/ansible/ansible-runner:latest   # or docker
+podman pull quay.io/ansible/ansible-builder:latest  # or docker
+ansible-builder build -v3 --tag awx-ee:local
 ```
