@@ -22,20 +22,24 @@ jobs:
         run: |
           echo "REPO=ghcr.io/${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
 
+      - name: Grab shortened SHA
+        run: |
+          echo "SHORT_SHA=${GITHUB_SHA::7}" >>${GITHUB_ENV}
+
       - name: Build image
         run: |
-          ansible-builder build -v3 --tag=${{ env.REPO }}/awx-ee:${{ github.sha }}
+          ansible-builder build -v3 --tag=${{ env.REPO }}/awx-ee:${{ env.SHORT_SHA }}
 
       - name: Save context
         uses: github-actions-x/commit@v2.8
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           push-branch: 'context'
-          commit-message: 'Context from ${{ github.sha }}'
+          commit-message: 'Context from ${{ env.SHORT_SHA }}'
           files: .
           force-add: 'true'
 
       - name: Push image to GH packages
         run: |
           podman login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
-          podman push ${{ env.REPO }}/awx-ee:${{ github.sha }}
+          podman push ${{ env.REPO }}/awx-ee:${{ env.SHORT_SHA }}
