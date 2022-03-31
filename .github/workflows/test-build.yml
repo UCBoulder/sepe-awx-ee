@@ -18,4 +18,4 @@ jobs:
 
       - name: Build image
         run: |
-          ansible-builder build -v3 --tag=${{ env.REPO }}/awx-ee:test-build
+          ansible-builder build -v3 --tag=awx-ee:test-build
