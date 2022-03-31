@@ -1,11 +1,7 @@
 ---
 collections:
   - name: awx.awx
-# Out until https://github.com/ansible-collections/azure/pull/584 is merged
-#- name: azure.azcollection
-  - name: https://github.com/erinn/azure/
-    type: git
-    version: patch-1
+  - name: azure.azcollection
   - name: kubernetes.core
   - name: ansible.posix
   - name: ansible.windows
