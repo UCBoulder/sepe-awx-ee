@@ -1,15 +1,13 @@
-name: Build
+name: Deploy
 
 on:
   push:
-    branches:
-      - devel 
-      - sepe-443
+    branches: [devel]
 
 jobs:
   release:
     runs-on: ubuntu-latest
-    name: Build
+    name: Build and Deploy
     steps:
       - uses: actions/checkout@v2
 
