@@ -30,17 +30,12 @@ jobs:
         run: |
           ansible-builder build -v3 --tag=${{ env.REPO }}/awx-ee:${{ env.SHORT_SHA }}
 
-      - name: Allow committing context
+      - name: Save context to context branch
         run: |
-          rm .gitignore
-
-      - name: Save context
-        uses: github-actions-x/commit@v2.8
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          push-branch: 'context'
-          commit-message: 'Context from ${{ env.SHORT_SHA }}'
-          force-push: 'true'
+          git checkout context
+          git add -f .
+          git commit -m "Context from ${{ env.SHORT_SHA }}"
+          git push -f
 
       - name: Push image to GH packages
         run: |
