@@ -1,6 +1,6 @@
 ---
 version: 1
 dependencies:
-  galaxy: reqs/galaxy.yml
-  python: reqs/pip.txt
-  system: reqs/bindep.txt
+  galaxy: spec/galaxy.yml
+  python: spec/requirements.txt
+  system: spec/bindep.txt

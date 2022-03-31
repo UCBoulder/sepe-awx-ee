@@ -1,2 +1,0 @@
-# Upstream, but modified. 1.0 is out now, so shouldn't need to run devel anymore
-ansible-builder==1.0.1

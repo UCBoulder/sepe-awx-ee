@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - package-ecosystem: "python"
+    directory: "/build"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "python"
+    directory: "/spec"
+    schedule:
+      interval: "weekly"
