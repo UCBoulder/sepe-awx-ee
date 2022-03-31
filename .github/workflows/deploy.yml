@@ -30,5 +30,7 @@ jobs:
 
       - name: Push image to GH packages
         run: |
+          podman tag ${{ env.REPO }}/awx-ee:${{ env.SHORT_SHA }} ${{ env.REPO }}/awx-ee:latest
           podman login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
           podman push ${{ env.REPO }}/awx-ee:${{ env.SHORT_SHA }}
+          podman push ${{ env.REPO }}/awx-ee:latest
