@@ -1,0 +1,36 @@
+name: Deploy
+
+on:
+  push:
+    branches: [devel]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    name: Build and Deploy
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r build/requirements.txt
+
+      - name: Downcase repo path
+        run: |
+          echo "REPO=ghcr.io/${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
+
+      - name: Grab shortened SHA
+        run: |
+          echo "SHORT_SHA=${GITHUB_SHA::7}" >>${GITHUB_ENV}
+
+      - name: Build image
+        run: |
+          ansible-builder build -v3 --tag=${{ env.REPO }}/awx-ee:${{ env.SHORT_SHA }}
+
+      - name: Push image to GH packages
+        run: |
+          podman tag ${{ env.REPO }}/awx-ee:${{ env.SHORT_SHA }} ${{ env.REPO }}/awx-ee:latest
+          podman login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
+          podman push ${{ env.REPO }}/awx-ee:${{ env.SHORT_SHA }}
+          podman push ${{ env.REPO }}/awx-ee:latest

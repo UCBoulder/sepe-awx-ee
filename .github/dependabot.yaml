@@ -1,0 +1,15 @@
+version: 2
+updates:
+  - package-ecosystem: "python"
+    directory: "/build"
+    reviewers:
+      - UCBoulder/oit-sepe
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "python"
+    directory: "/spec"
+    reviewers:
+      - UCBoulder/oit-sepe
+    schedule:
+      interval: "weekly"
