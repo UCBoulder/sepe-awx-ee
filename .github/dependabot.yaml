@@ -1,13 +1,13 @@
 version: 2
 updates:
-  - package-ecosystem: "python"
+  - package-ecosystem: "pip"
     directory: "/build"
     reviewers:
       - UCBoulder/oit-sepe
     schedule:
       interval: "weekly"
 
-  - package-ecosystem: "python"
+  - package-ecosystem: "pip"
     directory: "/spec"
     reviewers:
       - UCBoulder/oit-sepe
