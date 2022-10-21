@@ -1,7 +1,7 @@
 # SEPE-specific, copied from GREQ0302203
 ansible==5.5.0
 # Upstream hasn't packaged as collection yet: https://github.com/TerryHowe/ansible-modules-hashivault/issues/234
-ansible-modules-hashivault==4.6.7
+ansible-modules-hashivault==4.7.0
 # Required a number of places including community.general
 jmespath==1.0.0
 # Required by community.general LDAP plugins
