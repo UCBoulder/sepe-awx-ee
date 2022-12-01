@@ -6,6 +6,9 @@ updates:
       - UCBoulder/oit-sepe
     schedule:
       interval: "weekly"
+    ignore:
+      - dependency-name: "ansible"
+        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: "pip"
     directory: "/spec"
@@ -13,3 +16,6 @@ updates:
       - UCBoulder/oit-sepe
     schedule:
       interval: "weekly"
+    ignore:
+      - dependency-name: "ansible"
+        update-types: ["version-update:semver-major"]
