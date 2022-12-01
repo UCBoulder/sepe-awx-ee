@@ -1,2 +1,2 @@
-python39-devel [platform:rpm compile]
+python38-devel [platform:rpm compile]
 openldap-devel [platform:rpm compile]
