@@ -4,3 +4,8 @@ dependencies:
   galaxy: spec/galaxy.yml
   python: spec/requirements.txt
   system: spec/bindep.txt
+
+  # Set python interpreter for inside ee container.
+  python_interpreter:
+    package_system: python39  # name of a Python interpreter OS package to install
+    python_path: /usr/bin/python3.9  # path to the Python interpreter to use
