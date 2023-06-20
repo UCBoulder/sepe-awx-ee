@@ -3,7 +3,7 @@ ansible==6.7.0
 # Workaround to address pyOpenSSL version issues with ansible-runner (see https://github.com/ansible/ansible-runner/issues/1138)
 ansible-runner>=2.2.1
 # Upstream hasn't packaged as collection yet: https://github.com/TerryHowe/ansible-modules-hashivault/issues/234
-ansible-modules-hashivault==5.1.0
+ansible-modules-hashivault==5.1.1
 # Required a number of places including community.general
 jmespath==1.0.1
 # Required by community.general LDAP plugins
