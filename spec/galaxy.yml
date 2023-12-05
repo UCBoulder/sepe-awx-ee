@@ -1,13 +1,13 @@
 ---
 collections:
   - name: awx.awx
-    version: '>=23.0.0'
+    source: https://old-galaxy.ansible.com/
   - name: azure.azcollection
   - name: kubernetes.core
   - name: ansible.posix
   - name: ansible.windows
   - name: community.general
-    version: '>=8.0.0'
+    source: https://old-galaxy.ansible.com/
   - name: community.hashi_vault
   - name: community.vmware
   - name: vmware.vmware_rest
