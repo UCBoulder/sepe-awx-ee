@@ -1,13 +1,11 @@
 ---
 collections:
   - name: awx.awx
-    source: https://old-galaxy.ansible.com/
   - name: azure.azcollection
   - name: kubernetes.core
   - name: ansible.posix
   - name: ansible.windows
   - name: community.general
-    source: https://old-galaxy.ansible.com/
   - name: community.hashi_vault
   - name: community.vmware
   - name: vmware.vmware_rest
