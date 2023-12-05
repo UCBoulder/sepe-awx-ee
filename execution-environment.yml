@@ -1,6 +1,18 @@
 ---
 version: 1
 dependencies:
-  galaxy: spec/galaxy.yml
+  galaxy: |
+    ---
+    collections:
+      - name: awx.awx
+      - name: azure.azcollection
+      - name: kubernetes.core
+      - name: ansible.posix
+      - name: ansible.windows
+      - name: community.general
+        version: 8.1.0
+      - name: community.hashi_vault
+      - name: community.vmware
+      - name: vmware.vmware_rest
   python: spec/requirements.txt
   system: spec/bindep.txt

@@ -4,6 +4,9 @@ on:
   pull_request:
     branches: [devel]
 
+env:
+   ANSIBLE_GALAXY_SERVER: https://old-galaxy.ansible.com/
+
 jobs:
   release:
     runs-on: ubuntu-latest
