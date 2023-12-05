@@ -6,6 +6,7 @@ collections:
   - name: ansible.posix
   - name: ansible.windows
   - name: community.general
+    version: 8.1.0
   - name: community.hashi_vault
   - name: community.vmware
   - name: vmware.vmware_rest
