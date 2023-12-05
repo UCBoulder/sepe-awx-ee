@@ -1,5 +1,5 @@
 # SEPE-specific, copied from GREQ0302203
-ansible==6.7.0
+ansible==7.0.0
 # Workaround to address pyOpenSSL version issues with ansible-runner (see https://github.com/ansible/ansible-runner/issues/1138)
 ansible-runner>=2.2.1
 # Upstream hasn't packaged as collection yet: https://github.com/TerryHowe/ansible-modules-hashivault/issues/234
