@@ -9,4 +9,5 @@ collections:
   - name: community.hashi_vault
   - name: community.vmware
   - name: vmware.vmware_rest
+  - name: community.zabbix
   - name: crowdstrike.falcon
