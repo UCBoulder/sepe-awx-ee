@@ -1,7 +1,7 @@
 # SEPE AWX EE
 
 A Custom Ansible Execution Environment for Platform Engineering using
-python 3.8.
+python 3.9.
 
 Originally cloned from the [Ansible awx-ee repository](https://github.com/ansible/awx-ee).
 
@@ -11,7 +11,7 @@ Originally cloned from the [Ansible awx-ee repository](https://github.com/ansibl
 pip install -r build-reqs.txt                       # or however you deal with python
 podman pull quay.io/ansible/ansible-runner:latest   # or docker
 podman pull quay.io/ansible/ansible-builder:latest  # or docker
-ansible-builder build -v3 --tag awx-ee:local
+ansible-builder build -v3 -t awx-ee:local
 ```
 
 This should result in a podman image, for example:
@@ -19,17 +19,17 @@ This should result in a podman image, for example:
 ```
 $ podman images
 REPOSITORY                       TAG         IMAGE ID      CREATED       SIZE
-localhost/awx-ee                 local       9797da5f7526  2 hours ago   2.45 GB
+localhost/awx-ee                 local       f6c5989cd851  3 hours ago   1.99 GB
 ```
 
 To run the local execution environment image above in a container with a
 bash prompt:
 
 ```
-$ podman run -it 9797da5f7526 /bin/bash
-bash-4.4# python3 -V
-Python 3.8.13
-bash-4.4# exit
+$ podman run -it f6c5989cd851 /bin/bash
+bash-5.1# python3 -V
+Python 3.9.19
+bash-5.1# exit
 ```
 
 ### Automated Builds

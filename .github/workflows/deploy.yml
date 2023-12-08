@@ -8,14 +8,14 @@ on:
 
 jobs:
   release:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     name: Build and Deploy
     steps:
       - uses: actions/checkout@v2
 
       - uses: actions/setup-python@v2
         with:
-          python-version: "3.8"
+          python-version: "3.9"
 
       - name: Install dependencies
         run: |
