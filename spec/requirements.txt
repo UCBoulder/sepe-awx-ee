@@ -1,7 +1,11 @@
 # SEPE-specific, copied from GREQ0302203
-ansible==6.7.0
+# wazh7587 03/06/2024 commenting for a newer version requirement (at least 2.14 / 7.7.0) for falcon galaxy collection
+# ansible==6.7.0
+ansible==8.7.0
 # Workaround to address pyOpenSSL version issues with ansible-runner (see https://github.com/ansible/ansible-runner/issues/1138)
-ansible-runner>=2.2.1
+# wazh7587 03/062024 commenting as this appears to have been fixed upstream
+# ansible-runner>=2.2.1
+ansible-runner=2.3.5
 # Upstream hasn't packaged as collection yet: https://github.com/TerryHowe/ansible-modules-hashivault/issues/234
 ansible-modules-hashivault==5.2.1
 # Required a number of places including community.general
@@ -12,11 +16,11 @@ python-ldap==3.4.4
 # CUCS and CURC-specific
 ansible-sign==0.1.1
 ncclient==0.6.15
-paramiko==2.12.0
-pyOpenSSL==23.3.0
+paramiko==3.4.0
+pyOpenSSL==24.0.0
 toml==0.10.2
 pexpect==4.9.0
 python-daemon==3.0.1
 pyyaml==6.0.1
 six==1.16.0
-crowdstrike-falconpy==1.3.0
+crowdstrike-falconpy==1.4.1
