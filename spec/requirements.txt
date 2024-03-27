@@ -12,3 +12,6 @@ ansible-modules-hashivault==5.2.1
 jmespath==1.0.1
 # Required by community.general LDAP plugins
 python-ldap==3.4.4
+
+# wazh7587 03/27/2024 Added from awx-ee for containerized receptor mesh support
+receptorctl==1.4.5
