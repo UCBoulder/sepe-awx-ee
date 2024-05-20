@@ -5,7 +5,7 @@ ansible==8.7.0
 # Workaround to address pyOpenSSL version issues with ansible-runner (see https://github.com/ansible/ansible-runner/issues/1138)
 # wazh7587 03/062024 commenting as this appears to have been fixed upstream, test bump from 2.2.1 to 2.3.6
 # ansible-runner>=2.2.1
-ansible-runner==2.3.6
+ansible-runner==2.4.0
 # Upstream hasn't packaged as collection yet: https://github.com/TerryHowe/ansible-modules-hashivault/issues/234
 ansible-modules-hashivault==5.2.1
 # Required a number of places including community.general
