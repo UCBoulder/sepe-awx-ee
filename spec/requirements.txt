@@ -7,7 +7,7 @@ ansible==8.7.0
 # ansible-runner>=2.2.1
 ansible-runner==2.4.1
 # Upstream hasn't packaged as collection yet: https://github.com/TerryHowe/ansible-modules-hashivault/issues/234
-ansible-modules-hashivault==5.3.0
+ansible-modules-hashivault==5.4.0
 # Required a number of places including community.general
 jmespath==1.0.1
 # Required by community.general LDAP plugins
