@@ -14,4 +14,4 @@ jmespath==1.0.1
 python-ldap==3.4.4
 
 # wazh7587 03/27/2024 Added from awx-ee for containerized receptor mesh support
-receptorctl==1.5.5
+receptorctl==1.6.2
